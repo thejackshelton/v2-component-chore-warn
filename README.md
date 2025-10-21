@@ -1,65 +1,23 @@
-# Qwik City App ⚡️
+# Reproduction Steps
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
-
----
-
-## Project Structure
-
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
-
-Inside your project, you'll see the following directory structure:
-
-```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
-
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
-
-- `src/components`: Recommended directory for components.
-
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
-
-## Add Integrations and deployment
-
-Use the `pnpm qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
+1. Run pnpm install
+2. Run pnpm dev
+3. Open http://localhost:5173 in your browser
+4. Notice the following warning in the terminal:
 
 ```shell
-pnpm qwik add # or `pnpm qwik add`
+QWIK WARN A 'Component' chore was scheduled on a host element that has already been streamed to the client.
+This can lead to inconsistencies between Server-Side Rendering (SSR) and Client-Side Rendering (CSR).
+
+Problematic chore:
+  - Type: Component
+  - Host: <SSRNode id="10AAA" ="11A", q:brefs=*, q:key="GA_1", q:props=*, q:renderFn=*, q:type="C" />
+  - Nearest element location: /src/components/checkbox/checkbox-root.tsx:27:5
+
+This is often caused by modifying a signal in an already rendered component during SSR.
 ```
 
-## Development
+This happens when we are backpatching something and there is a qrl around a ref function. Unfortunately, if we remove the ref function, an SSG build fails. Currently we have the qrl kept with the warning.
 
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
-
-```shell
-npm start # or `pnpm start`
-```
-
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
-
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
-
-```shell
-pnpm preview # or `pnpm preview`
-```
-
-## Production
-
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
-
-```shell
-pnpm build # or `pnpm build`
-```
+5. Look into checkbox-trigger.tsx
+6. If you uncomment the signal write when backpatching in checkbox-error, the read in checkbox-trigger, or remove the qrl around the ref function, the warning goes away.
