@@ -1,5 +1,7 @@
 # Reproduction Steps
 
+When doing a simple backpatch, there is a scheduled COMPONENT chore on latest in build/v2, even when we are dealing with what should only be a NODE_PROP change.
+
 1. Run pnpm install
 2. Run pnpm dev
 3. Open http://localhost:5173 in your browser
