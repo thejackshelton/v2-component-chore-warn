@@ -15,11 +15,11 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1
       '@qwik.dev/core':
-        specifier: 2.0.0-beta.11
-        version: 2.0.0-beta.11(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))
+        specifier: https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@117116d
+        version: https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@117116d(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))
       '@qwik.dev/router':
         specifier: 2.0.0-beta.11
-        version: 2.0.0-beta.11(@qwik.dev/core@2.0.0-beta.11(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1)))(rollup@4.52.5)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))
+        version: 2.0.0-beta.11(@qwik.dev/core@https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@117116d(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1)))(rollup@4.52.5)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))
       '@types/node':
         specifier: 20.19.0
         version: 20.19.0
@@ -711,8 +711,9 @@ packages:
     resolution: {integrity: sha512-qUbJuzxUTHrz0d2IQRzwY3UkmdQqf6esjAxrPJXIrZzx4WoeNxWxCVEync1r9/WJsgHVhZBcKnLct+O1IYP8BQ==}
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
 
-  '@qwik.dev/core@2.0.0-beta.11':
-    resolution: {integrity: sha512-D2RT/LKln2/2QgkTpeDkXjpX7mCUGYFXHT0W04JlpNDBiJ1vj4jfcTZqcauFWnSS+TwOE6u22Mz4HbvxiFMyTQ==}
+  '@qwik.dev/core@https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@117116d':
+    resolution: {tarball: https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@117116d}
+    version: 2.0.0-beta.11
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
     hasBin: true
     peerDependencies:
@@ -727,6 +728,7 @@ packages:
 
   '@qwik.dev/router@2.0.0-beta.11':
     resolution: {integrity: sha512-YwvE1laJpaV4T65ncL1dZOJCNH0P5WyajQFfx3b5/idvQ/anXuS5CichyCCAv0SRFYUjKGHCnBuQIChzWYESXQ==}
+    version: 2.0.0-beta.11
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
     peerDependencies:
       '@qwik.dev/core': ^2.0.0-beta.11
@@ -3364,7 +3366,7 @@ snapshots:
 
   '@qds.dev/utils@0.4.1': {}
 
-  '@qwik.dev/core@2.0.0-beta.11(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))':
+  '@qwik.dev/core@https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@117116d(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))':
     dependencies:
       csstype: 3.1.3
       launch-editor: 2.11.1
@@ -3373,12 +3375,12 @@ snapshots:
     optionalDependencies:
       prettier: 3.6.2
 
-  '@qwik.dev/router@2.0.0-beta.11(@qwik.dev/core@2.0.0-beta.11(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1)))(rollup@4.52.5)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))':
+  '@qwik.dev/router@2.0.0-beta.11(@qwik.dev/core@https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@117116d(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1)))(rollup@4.52.5)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))':
     dependencies:
       '@azure/functions': 3.5.1
       '@mdx-js/mdx': 3.1.1
       '@netlify/edge-functions': 2.19.0
-      '@qwik.dev/core': 2.0.0-beta.11(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))
+      '@qwik.dev/core': https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@117116d(prettier@3.6.2)(vite@7.1.7(@types/node@20.19.0)(less@4.4.2)(sass@1.93.2)(stylus@0.62.0)(yaml@2.8.1))
       '@types/mdx': 2.0.13
       estree-util-value-to-estree: 3.4.1
       github-slugger: 2.0.0

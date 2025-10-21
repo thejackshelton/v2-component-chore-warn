@@ -47,9 +47,13 @@ export const Render = component$(
   <T extends AllowedFallbacks>(props: RenderInternalProps<T>): JSXOutput => {
     const { fallback, jsxType, movedProps, internalRef, ...rest } = props;
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     fallback;
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     jsxType;
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     internalRef;
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     movedProps;
 
     const Comp = (props.jsxType ?? props.fallback) as Component;

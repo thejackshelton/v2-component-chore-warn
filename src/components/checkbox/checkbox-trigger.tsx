@@ -1,11 +1,4 @@
-import {
-  $,
-  type PropsOf,
-  Slot,
-  component$,
-  sync$,
-  useContext,
-} from "@qwik.dev/core";
+import { type PropsOf, Slot, component$, useContext } from "@qwik.dev/core";
 import { Render } from "../render/render";
 import { checkboxContextId } from "./checkbox-context";
 
@@ -15,35 +8,22 @@ export type PublicCheckboxControlProps = PropsOf<"button">;
 export const CheckboxTrigger = component$(
   (props: PublicCheckboxControlProps) => {
     const context = useContext(checkboxContextId);
-    const triggerId = `${context.localId}-trigger`;
 
-    const handleClick$ = $(() => {
-      if (context.checked.value === "mixed") {
-        context.checked.value = true;
-      } else {
-        context.checked.value = !context.checked.value;
-      }
-    });
-
-    const handleKeyDownSync$ = sync$((e: KeyboardEvent) => {
-      if (e.key !== "Enter") return;
-      e.preventDefault();
-    });
-
+    /**
+     * Because the qrl is passed around the ref function here, we get a Component chore scheduled.
+     *
+     * But if we don't pass the qrl around, SSG builds seem to fail.
+     */
     return (
       <Render
-        id={triggerId}
+        // Render component manages ref merging for the consumer, so they can just pass a ref and it will be merged with the internal ref
         internalRef={context.triggerRef}
         type="button"
         role="checkbox"
         fallback="button"
         aria-checked={`${context.checked.value}`}
+        // A read of an attribute that will be backpatched
         aria-describedby={context.describedByIds.value}
-        aria-invalid={context.isError.value}
-        disabled={context.isDisabled.value}
-        onClick$={[handleClick$, props.onClick$]}
-        onKeyDown$={[handleKeyDownSync$, props.onKeyDown$]}
-        data-qds-checkbox-trigger
         {...props}
       >
         <Slot />
